@@ -134,11 +134,11 @@ public class AdminNotes extends AppCompatActivity {
              Fragment fragment = null;
              switch (position){
                  case 0: {
-                     fragment = new AdminNotesFrag();
+                     fragment = new Admin_Schedule();
                      break;
                  }
                  case 1: {
-                     fragment = new Admin_Schedule();
+                     fragment = new AdminNotesFrag();
                      break;
                  }
                  default:{
