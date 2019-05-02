@@ -1,8 +1,8 @@
 package com.sameedshah.adfapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,10 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-public class AdminNotes extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -36,6 +36,7 @@ public class AdminNotes extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,15 @@ public class AdminNotes extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        ImageView back_arrow = findViewById(R.id.backArrow);
+        back_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminActivity.this,MainActivity.class));
+                finish();
+            }
+        });
 
 
 
@@ -142,7 +152,7 @@ public class AdminNotes extends AppCompatActivity {
                      break;
                  }
                  default:{
-                     Toast.makeText(AdminNotes.this, "Stop!", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(AdminActivity.this, "Stop!", Toast.LENGTH_SHORT).show();
                  }
                      
              }

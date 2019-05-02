@@ -7,12 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 public class Admin_Schedule extends Fragment {
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.schedule_frag,container,false);
+        View view =  inflater.inflate(R.layout.schedule_frag,container,false);
+
+       // btnCamera = view.findViewById(R.id,mCamera);
+        return view;
     }
 }

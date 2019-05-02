@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AdminNotes$PlaceholderFragment">
+    tools:context=".AdminActivity$PlaceholderFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -31,7 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
+        android:weightSum="3"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
         >
@@ -40,7 +40,8 @@
             android:layout_marginTop="12dp"
             android:layout_marginLeft="32dp"
             android:id="@+id/mCamera"
-            android:layout_width="50dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_camera_alt_black_24dp" />
         <Button
@@ -48,14 +49,27 @@
             android:layout_marginLeft="32dp"
             android:id="@+id/btnSave"
             android:textSize="12dp"
-            android:layout_width="110dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:text="Save Note"
+            android:textColor="@color/white"
+            android:background="@drawable/button_border"/>
+        <Button
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="32dp"
+            android:id="@+id/btnSummary"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="Summary"
             android:textColor="@color/white"
             android:background="@drawable/button_border"/>
     </LinearLayout>
 
     <ImageView
+        android:scaleType="fitCenter"
         android:id="@+id/save_image"
         android:layout_width="match_parent"
         android:layout_height="250dp"
