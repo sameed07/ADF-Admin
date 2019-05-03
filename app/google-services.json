@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "12386951561",
+    "firebase_url": "https://adf-app.firebaseio.com",
+    "project_id": "adf-app",
+    "storage_bucket": "adf-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12386951561:android:66c9964f9a931534",
+        "android_client_info": {
+          "package_name": "com.sameedshah.adfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12386951561-i8pfgh2rple1t0eknnfgv886pigd0rum.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sameedshah.adfapp",
+            "certificate_hash": "21ffbd09c8ac5575e39d821dc24d074531553138"
+          }
+        },
+        {
+          "client_id": "12386951561-ed3jugat9eo03j20rkak1nilp3a43vgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaCGU3nPE-cP_dMS95i5OU2QRDI9Mhl-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12386951561-ed3jugat9eo03j20rkak1nilp3a43vgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
