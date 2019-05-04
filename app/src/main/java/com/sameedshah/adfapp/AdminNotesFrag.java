@@ -1,19 +1,15 @@
 package com.sameedshah.adfapp;
 
-import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +18,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import static android.app.Activity.RESULT_OK;
 
 public class AdminNotesFrag extends Fragment {
 
@@ -35,17 +44,70 @@ public class AdminNotesFrag extends Fragment {
     EditText edtNotes;
     int CAM_CONS;
     String mCameraFileName;
+    private String mUrl;
 
-    private static final int TAKE_PICTURE = 1;
-    private Uri imageUri;
+    Bitmap mbitmap;
+    //Firebase
+    FirebaseStorage storage;
+    StorageReference storageReference;
+    FirebaseDatabase mDatabase;
+    DatabaseReference mRef;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_notes,container,false);
         CAM_CONS = 1;
+
+
+        mDatabase = FirebaseDatabase.getInstance();
+        mRef = mDatabase.getReference("AdminNotes");
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference("Images");
+
         btnCamera = view.findViewById(R.id.mCamera);
         myImg = view.findViewById(R.id.save_image);
+        btnSave = view.findViewById(R.id.btnSave);
+        edtNotes = view.findViewById(R.id.edtNotes);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//
+//// Get the data from an ImageView as bytes
+//                myImg.setDrawingCacheEnabled(true);
+//                myImg.buildDrawingCache();
+//                Bitmap bitmap = myImg.getDrawingCache();
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//                byte[] data = baos.toByteArray();
+//
+//                UploadTask uploadTask = mountainsRef.putBytes(data);
+//                uploadTask.addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception exception) {
+//                        // Handle unsuccessful uploads
+//                    }
+//                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                    @Override
+//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+//                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
+//                    }
+//                });
+                String notes = edtNotes.getText().toString();
+                Map<String, Object> map = new HashMap<>();
+                map.put("Notes",notes);
+                map.put("Image", mUrl);
+
+                mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
+                uploadImage();
+
+            }
+        });
+
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,37 +122,14 @@ public class AdminNotesFrag extends Fragment {
     }
 
 
-    //Open Camera Function
 
-    public void openCamera() {
-        Intent intent = new Intent();
-        // Picture from camera
-        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        // This is not the right way to do this, but for some reason, having
-        // it store it in
-        // MediaStore.Images.Media.EXTERNAL_CONTENT_URI isn't working right.
-
-        Date date = new Date();
-        DateFormat df = new SimpleDateFormat("-mm-ss");
-
-        String newPicFile = "Lab Result" + df.format(date) + ".jpg";
-        String outPath = "/sdcard/" + newPicFile;
-        File outFile = new File(outPath);
-
-        mCameraFileName = outFile.toString();
-        Uri outuri = Uri.fromFile(outFile);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outuri);
-
-
-        getActivity().startActivityForResult(intent, CAM_CONS);
-    }
 
     //handling result
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAM_CONS) {
-            if (resultCode == Activity.RESULT_OK) {
+        if (requestCode == CAM_CONS && resultCode == RESULT_OK ) {
+
 
                 Bitmap bmp = (Bitmap) data.getExtras().get("data");
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -102,35 +141,57 @@ public class AdminNotesFrag extends Fragment {
 
                 Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0,
                         byteArray.length);
+                 mbitmap  = bitmap;
+                    myImg.setImageBitmap(bitmap);
 
-                myImg.setImageBitmap(bitmap);
 
-            }
         }
     }
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//         if (requestCode == CAM_CONS)
-//            {
-//                // return from file upload
-//                if (resultCode == Activity.RESULT_OK)
-//                {
-//                    Uri uri = null;
-//                    if (data != null)
-//                    {
-//                        uri = data.getData();
-//                    }
-//                    if (uri == null && mCameraFileName != null)
-//                    {
-//                        uri = Uri.fromFile(new File(mCameraFileName));
-//                    }
-//                    File file = new File(mCameraFileName);
-//                    if (!file.exists()) {
-//                        file.mkdir();
-//                    }
-//                }
-//            }}
+    private void uploadImage() {
+
+            final ProgressDialog progressDialog = new ProgressDialog(getContext());
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            final String time = String.valueOf(System.currentTimeMillis());
+
+            final StorageReference ref = storageReference.child("Notes/"+ time);
+
+        UploadTask uploadTask = ref.putBytes(getByte(mbitmap));
+
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+
+                // Continue with the task to get the download URL
+                return ref.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    mUrl = downloadUri.toString();
+                    progressDialog.dismiss();
+                    Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Handle failures
+                    // ...
+                    Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+    }
+
+    public byte[] getByte(Bitmap bitmap){
+
+        ByteArrayOutputStream mArray = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,mArray);
+        return mArray.toByteArray();
+    }
 
 }
