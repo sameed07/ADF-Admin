@@ -2,32 +2,21 @@ package Model;
 
 public class Notes {
 
-    private String Notes;
-    private String Image;
+    public String Notes;
+    public String Image;
+    public String ref;
 
-    public Notes(String notes, String image) {
+    public Notes(String notes, String image, String ref) {
         Notes = notes;
         Image = image;
+        this.ref = ref;
     }
 
     public Notes() {
     }
 
-    public String getNotes() {
-        return Notes;
+
     }
 
-    public void setNotes(String notes) {
-        Notes = notes;
-    }
-
-    public String getImage() {
-        return Image;
-    }
-
-    public void setImage(String image) {
-        Image = image;
-    }
-}
 
 

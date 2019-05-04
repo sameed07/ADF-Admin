@@ -71,7 +71,14 @@ public class AdminNotesFrag extends Fragment {
         myImg = view.findViewById(R.id.save_image);
         btnSave = view.findViewById(R.id.btnSave);
         edtNotes = view.findViewById(R.id.edtNotes);
+        btnSummary = view.findViewById(R.id.btnSummary);
 
+        btnSummary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),SummaryActivity.class));
+            }
+        });
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
