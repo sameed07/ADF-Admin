@@ -97,13 +97,9 @@ public class AdminNotesFrag extends Fragment {
 //                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
 //                    }
 //                });
-                String notes = edtNotes.getText().toString();
-                Map<String, Object> map = new HashMap<>();
-                map.put("Notes",notes);
-                map.put("Image", mUrl);
-
-                mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
                 uploadImage();
+
+
 
             }
         });
@@ -174,6 +170,11 @@ public class AdminNotesFrag extends Fragment {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
                     mUrl = downloadUri.toString();
+                    String notes = edtNotes.getText().toString();
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("Notes",notes);
+                    map.put("Image", mUrl);
+                    mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
                     progressDialog.dismiss();
                     Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
                 } else {
