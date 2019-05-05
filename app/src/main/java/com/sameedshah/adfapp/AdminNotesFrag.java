@@ -62,7 +62,7 @@ public class AdminNotesFrag extends Fragment {
 
 
         mDatabase = FirebaseDatabase.getInstance();
-        mRef = mDatabase.getReference("AdminNotes");
+        mRef = mDatabase.getReference("Admin").child("AdminNotes");
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference("Images");

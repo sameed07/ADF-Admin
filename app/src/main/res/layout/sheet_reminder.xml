@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sheet"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="8.0dip">
+
+    <TextView
+        android:id="@+id/sheet_title"
+        style="@style/AppTextView.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginTop="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginBottom="12.0dip"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="2"
+        android:text="Title"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/sheet_subtitle"
+        style="@style/AppTextView.Bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginBottom="12.0dip"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="2"
+        android:text="SubTitle"
+         />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12.0dip"
+        android:orientation="horizontal"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24.0dip"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/dark_textColorSecondary"
+                 />
+
+            <TextView
+                android:id="@+id/sheet_date"
+                style="@style/AppTextView.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+
+            <TextView
+                android:id="@+id/add_date"
+                style="@style/AppTextView.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:textColor="@color/colorPrimary"
+
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24.0dip"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textColor="@color/dark_textColorSecondary"
+                 />
+
+            <TextView
+                android:id="@+id/sheet_time"
+                style="@style/AppTextView.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                 />
+
+            <TextView
+                android:id="@+id/add_hour"
+                style="@style/AppTextView.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:textColor="@color/colorPrimary"
+
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:background="@color/dark_item_ripple" />
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/done"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="16.0dip"-->
+        <!--android:paddingTop="8.0dip"-->
+        <!--android:paddingRight="16.0dip"-->
+        <!--android:paddingBottom="8.0dip">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/done_icon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/dark_btn_sheet_action"-->
+            <!--android:contentDescription="@null"-->
+            <!--android:padding="6.0dip"-->
+            <!--app:srcCompat="@drawable/dark_ic_done" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/done_text"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="16.0dip"-->
+            <!--android:gravity="start"-->
+            <!--android:text="Completed"-->
+            <!--android:textStyle="bold"-->
+             <!--/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/sheet_edit_btn"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="16.0dip"-->
+        <!--android:paddingTop="8.0dip"-->
+        <!--android:paddingRight="16.0dip"-->
+        <!--android:paddingBottom="8.0dip">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/dark_btn_sheet_action"-->
+            <!--android:contentDescription="@null"-->
+            <!--android:padding="6.0dip"-->
+            <!--app:srcCompat="@drawable/dark_ic_edit" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="16.0dip"-->
+            <!--android:gravity="start"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="Edit"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/sheet_delete_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="16.0dip"
+        android:paddingTop="8.0dip"
+        android:paddingRight="16.0dip"
+        android:paddingBottom="8.0dip">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dark_btn_sheet_action"
+            android:contentDescription="@null"
+            android:padding="6.0dip"
+            android:src="@drawable/dark_ic_delete" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16.0dip"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:text="Delete"
+             />
+    </LinearLayout>
+</LinearLayout>

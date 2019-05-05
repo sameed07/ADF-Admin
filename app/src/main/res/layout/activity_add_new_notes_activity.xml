@@ -11,20 +11,23 @@
     android:id="@+id/title_edt_new_notes"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Enter Title"/>
+    android:hint="Enter Title"
+        android:layout_marginBottom="10dp"/>
 
     <EditText
 
         android:id="@+id/discription_edt_new_notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Description"/>
+        android:hint="Enter Description"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/date_time_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Date And Time"/>
+        android:hint="Enter Date And Time"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/submit_btn"

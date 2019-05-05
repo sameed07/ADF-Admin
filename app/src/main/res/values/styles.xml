@@ -17,5 +17,9 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTextView" parent="@android:style/Widget.Holo.Light.TextView" />
 
+    <style name="AppTextView.Bold" parent="@style/AppTextView" />
+
+    <style name="AppTextView.Regular" parent="@style/AppTextView" />
 </resources>
