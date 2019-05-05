@@ -2,13 +2,15 @@ package com.sameedshah.adfapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -18,15 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
 public class Add_new_notes_activity extends AppCompatActivity {
 
+    ImageView back_img;
     String date_time = "";
     int mYear;
     int mMonth;
@@ -50,6 +50,14 @@ public class Add_new_notes_activity extends AppCompatActivity {
 
         title = findViewById(R.id.title_edt_new_notes);
         description = findViewById(R.id.discription_edt_new_notes);
+        back_img = findViewById(R.id.img_back);
+        back_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(Add_new_notes_activity.this,Admin_Schedule_fragment.class));
+               finish();
+            }
+        });
 
         date_time_txt = findViewById(R.id.date_time_txt);
         date_time_txt.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +71,9 @@ public class Add_new_notes_activity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-String titl = title.getText().toString();
-String des = description.getText().toString();
-String dt = date_time_txt.getText().toString();
+                String titl = title.getText().toString();
+                String des = description.getText().toString();
+                String dt = date_time_txt.getText().toString();
 
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Admin").child("AdminSchedule");
 

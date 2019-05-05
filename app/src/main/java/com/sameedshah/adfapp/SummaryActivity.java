@@ -34,7 +34,7 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
 
         database = FirebaseDatabase.getInstance();
-        mRef = database.getReference("AdminNotes");
+        mRef = database.getReference("Admin").child("AdminNotes");
         notesRecycler = findViewById(R.id.notesRecycler);
         layoutManager = new LinearLayoutManager(this);
         notesRecycler.setLayoutManager(layoutManager);
