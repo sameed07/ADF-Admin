@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AdminActivity.class));
             }
         });
+        ImageView add_user = findViewById(R.id.image_addUsers);
+        add_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddUser.class));
+            }
+        });
 
     }
 }
