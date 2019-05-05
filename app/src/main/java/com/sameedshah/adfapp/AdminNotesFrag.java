@@ -184,6 +184,9 @@ public class AdminNotesFrag extends Fragment {
                     mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
                     progressDialog.dismiss();
                     Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    edtNotes.setText("");
+                    myImg.setImageResource(R.drawable.default_img);
+
                 } else {
                     // Handle failures
                     // ...

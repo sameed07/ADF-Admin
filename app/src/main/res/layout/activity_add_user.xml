@@ -11,16 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+
         >
 
-        <View
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="12dp"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="1dp"
-            android:background="@color/colorBlack"
-            />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Add Users"
+           android:layout_gravity="center"
+           android:textColor="@color/colorBlack"
+           android:textSize="24dp"
+           android:textStyle="bold"
+           android:layout_marginLeft="20dp"
+           />
+
 
         <ImageView
             android:layout_width="100dp"
@@ -29,14 +33,7 @@
             android:layout_marginLeft="12dp"
             />
 
-        <View
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="12dp"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="1dp"
-            android:background="@color/colorBlack"
-            />
+
 
     </LinearLayout>
 
@@ -58,6 +55,7 @@
 
 
     <EditText
+        android:id="@+id/edt_username"
         android:drawableLeft="@drawable/ic_person_black_24dp"
         android:drawablePadding="12dp"
         android:layout_marginTop="30dp"
@@ -70,6 +68,7 @@
         android:hint="user name"
         />
     <EditText
+        android:id="@+id/edt_email"
         android:drawableLeft="@drawable/ic_email_black_24dp"
         android:drawablePadding="12dp"
         android:layout_marginTop="10dp"
@@ -82,6 +81,8 @@
         android:hint="Enter Email"
         />
     <EditText
+        android:inputType="textPassword"
+        android:id="@+id/edt_password"
         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
         android:drawablePadding="12dp"
         android:layout_marginTop="10dp"
@@ -95,6 +96,8 @@
         />
 
     <EditText
+        android:inputType="textPassword"
+        android:id="@+id/edt_Confirmpassword"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="32dp"
@@ -107,6 +110,7 @@
         android:padding="8dp" />
 
     <Button
+        android:onClick="onAdd"
         android:text="Add User"
         android:textColor="@color/white"
         android:layout_width="match_parent"
