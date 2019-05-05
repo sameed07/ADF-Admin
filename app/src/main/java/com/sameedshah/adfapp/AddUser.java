@@ -51,8 +51,10 @@ public class AddUser extends AppCompatActivity {
         }else {
             if (edt_pasword.getText().toString().equals(edt_confpassword.getText().toString())) {
 
-                mDialog.setTitle("Adding User");
-                mDialog.setMessage("wait please...");
+
+                final ProgressDialog progressDialog = new ProgressDialog(this);
+                progressDialog.setTitle("Uploading...");
+                progressDialog.show();
                 Map<String, Object> map = new HashMap<>();
                 map.put("Username", edt_username.getText().toString());
                 map.put("Email", edt_email.getText().toString().trim());
@@ -63,10 +65,11 @@ public class AddUser extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(AddUser.this, "User added", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
                     }
                 });
 
-                mDialog.dismiss();
+
 
 
             } else {
