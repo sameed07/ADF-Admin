@@ -1,6 +1,5 @@
 package com.sameedshah.adfapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -144,7 +143,7 @@ public class AdminActivity extends AppCompatActivity {
              Fragment fragment = null;
              switch (position){
                  case 0: {
-                     fragment = new Admin_Schedule();
+                     fragment = new Admin_Schedule_fragment();
                      break;
                  }
                  case 1: {

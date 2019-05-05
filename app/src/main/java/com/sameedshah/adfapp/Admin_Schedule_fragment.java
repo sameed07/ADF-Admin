@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class Admin_Schedule extends Fragment {
+public class Admin_Schedule_fragment extends Fragment {
 
 
     @Nullable
@@ -19,6 +19,12 @@ public class Admin_Schedule extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.schedule_frag,container,false);
 
+        view.findViewById(R.id.add_fab_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
        // btnCamera = view.findViewById(R.id,mCamera);
         return view;
     }

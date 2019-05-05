@@ -20,7 +20,7 @@ public class AddUser extends AppCompatActivity {
 
     FirebaseDatabase mDatabase;
     DatabaseReference mRef;
-    ProgressDialog mDialog;
+
 
 
     @Override
@@ -28,9 +28,9 @@ public class AddUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
+        //init
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference("Users");
-        mDialog = new ProgressDialog(this);
 
         edt_username = findViewById(R.id.edt_username);
         edt_email = findViewById(R.id.edt_email);
