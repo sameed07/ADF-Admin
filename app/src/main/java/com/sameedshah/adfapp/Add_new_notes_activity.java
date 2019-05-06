@@ -24,6 +24,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
+import Fragments.Admin_Schedule_fragment;
+
 public class Add_new_notes_activity extends AppCompatActivity {
 
     ImageView back_img;
@@ -54,7 +56,7 @@ public class Add_new_notes_activity extends AppCompatActivity {
         back_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(Add_new_notes_activity.this,Admin_Schedule_fragment.class));
+               startActivity(new Intent(Add_new_notes_activity.this, Admin_Schedule_fragment.class));
                finish();
             }
         });

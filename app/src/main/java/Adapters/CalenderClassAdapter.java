@@ -92,7 +92,7 @@ public class CalenderClassAdapter extends RecyclerView.Adapter<CalenderClassAdap
                 sheetDate = (TextView) sheetReminder.findViewById(R.id.sheet_date);
                 sheetTime = (TextView) sheetReminder.findViewById(R.id.sheet_time);
 
-//                sheetEditBtn = (LinearLayout) sheetReminder.findViewById(R.id.sheet_edit_btn);
+
                 sheetDeleteBtn = (LinearLayout) sheetReminder.findViewById(R.id.sheet_delete_btn);
 //
 //                sheetEditBtn.setOnClickListener(new View.OnClickListener() {

@@ -2,54 +2,45 @@ package com.sameedshah.adfapp;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import Fragments.ADF_Target_Fragment;
 import Fragments.AdminNotesFrag;
 import Fragments.Admin_Schedule_fragment;
+import Fragments.FYTD_Fragment;
+import Fragments.Quarterly_Fragment;
 
-public class AdminActivity extends AppCompatActivity {
+public class AddTarget extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private AddTarget.SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_notes);
+        setContentView(R.layout.activity_add_target);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new AddTarget.SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -64,15 +55,13 @@ public class AdminActivity extends AppCompatActivity {
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this,MainActivity.class));
+                startActivity(new Intent(AddTarget.this,MainActivity.class));
                 finish();
             }
         });
 
 
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,8 +102,8 @@ public class AdminActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static AddTarget.PlaceholderFragment newInstance(int sectionNumber) {
+            AddTarget.PlaceholderFragment fragment = new AddTarget.PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -143,30 +132,33 @@ public class AdminActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-             Fragment fragment = null;
-             switch (position){
-                 case 0: {
-                     fragment = new Admin_Schedule_fragment();
-                     break;
-                 }
-                 case 1: {
-                     fragment = new AdminNotesFrag();
-                     break;
-                 }
-                 default:{
-                     Toast.makeText(AdminActivity.this, "Stop!", Toast.LENGTH_SHORT).show();
-                 }
-                     
-             }
-             return fragment;
+            Fragment fragment = null;
+            switch (position){
+                case 0: {
+                    fragment = new ADF_Target_Fragment();
+                    break;
+                }
+                case 1: {
+                    fragment = new Quarterly_Fragment();
+                    break;
+                }
+
+                case 2:{
+                    fragment = new FYTD_Fragment();
+                    break;
+                }
+                default:{
+                    Toast.makeText(AddTarget.this, "Stop!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+            return fragment;
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
     }
-
-
 }

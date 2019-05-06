@@ -1,4 +1,4 @@
-package com.sameedshah.adfapp;
+package Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sameedshah.adfapp.Add_new_notes_activity;
+import com.sameedshah.adfapp.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,7 +57,7 @@ public class Admin_Schedule_fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getActivity(),Add_new_notes_activity.class));
+                startActivity(new Intent(getActivity(), Add_new_notes_activity.class));
             }
         });
        // btnCamera = view.findViewById(R.id,mCamera);

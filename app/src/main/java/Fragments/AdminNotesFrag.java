@@ -1,4 +1,4 @@
-package com.sameedshah.adfapp;
+package Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,6 +29,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.sameedshah.adfapp.R;
+import com.sameedshah.adfapp.SummaryActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
@@ -76,7 +78,7 @@ public class AdminNotesFrag extends Fragment {
         btnSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),SummaryActivity.class));
+                startActivity(new Intent(getActivity(), SummaryActivity.class));
             }
         });
         btnSave.setOnClickListener(new View.OnClickListener() {
