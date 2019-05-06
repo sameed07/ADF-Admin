@@ -28,5 +28,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageView addTarget = findViewById(R.id.btnAddTarget);
+        addTarget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AddTarget.class));
+
+            }
+        });
+
     }
 }
