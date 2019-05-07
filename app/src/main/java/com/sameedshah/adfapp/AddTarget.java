@@ -42,6 +42,7 @@ public class AddTarget extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new AddTarget.SectionsPagerAdapter(getSupportFragmentManager());
 
+
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -78,11 +79,18 @@ public class AddTarget extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_save) {
+
+            saved();
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void saved() {
+
     }
 
     /**

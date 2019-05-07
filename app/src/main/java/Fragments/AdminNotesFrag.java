@@ -20,13 +20,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.sameedshah.adfapp.R;
@@ -35,7 +32,6 @@ import com.sameedshah.adfapp.SummaryActivity;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -84,31 +80,8 @@ public class AdminNotesFrag extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
-//// Get the data from an ImageView as bytes
-//                myImg.setDrawingCacheEnabled(true);
-//                myImg.buildDrawingCache();
-//                Bitmap bitmap = myImg.getDrawingCache();
-//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//                byte[] data = baos.toByteArray();
-//
-//                UploadTask uploadTask = mountainsRef.putBytes(data);
-//                uploadTask.addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception exception) {
-//                        // Handle unsuccessful uploads
-//                    }
-//                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-//                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
-//                    }
-//                });
+
                 uploadImage();
-
-
 
             }
         });
@@ -154,49 +127,55 @@ public class AdminNotesFrag extends Fragment {
     }
     private void uploadImage() {
 
+        if(mbitmap != null) {
             final ProgressDialog progressDialog = new ProgressDialog(getContext());
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
             final String time = String.valueOf(System.currentTimeMillis());
 
-            final StorageReference ref = storageReference.child("Notes/"+ time);
+            final StorageReference ref = storageReference.child("Notes/" + time);
 
-        UploadTask uploadTask = ref.putBytes(getByte(mbitmap));
 
-        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw task.getException();
+            UploadTask uploadTask = ref.putBytes(getByte(mbitmap));
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return ref.getDownloadUrl();
                 }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        mUrl = downloadUri.toString();
+                        String notes = edtNotes.getText().toString();
 
-                // Continue with the task to get the download URL
-                return ref.getDownloadUrl();
-            }
-        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isSuccessful()) {
-                    Uri downloadUri = task.getResult();
-                    mUrl = downloadUri.toString();
-                    String notes = edtNotes.getText().toString();
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("Notes",notes);
-                    map.put("Image", mUrl);
-                    mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
-                    progressDialog.dismiss();
-                    Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-                    edtNotes.setText("");
-                    myImg.setImageResource(R.drawable.default_img);
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("Notes", notes);
+                            map.put("Image", mUrl);
+                            mRef.child(String.valueOf(System.currentTimeMillis())).setValue(map);
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                            edtNotes.setText("");
+                            myImg.setImageResource(R.drawable.default_img);
 
-                } else {
-                    // Handle failures
-                    // ...
-                    Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        // Handle failures
+                        // ...
+                        Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-
+            });
+        }else{
+            Toast.makeText(getContext(), "Select any image", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,9 +8,14 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <LinearLayout
     android:gravity="center_horizontal"
     android:layout_gravity="center_horizontal"
-
     android:layout_marginTop="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -56,31 +61,34 @@
         >
 
         <EditText
+            android:id="@+id/edt_target"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:background="@drawable/edt_border"
             android:layout_marginLeft="12dp"
-            android:textStyle="bold"
+
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:hint="000"
             />
         <EditText
+            android:id="@+id/edt_done"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:background="@drawable/edt_border"
-            android:textStyle="bold"
+
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:hint="000"
             />
         <EditText
+            android:id="@+id/edt_lessValue"
             android:inputType="numberDecimal"
             android:padding="8dp"
             android:background="@drawable/edt_border"
-            android:textStyle="bold"
+
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -125,52 +133,51 @@
             />
 
     </LinearLayout>
-    <LinearLayout
-        android:paddingBottom="8dp"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-
-        >
-
-        <EditText
-
-            android:padding="8dp"
-            android:background="@drawable/edt_border"
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
             android:layout_marginLeft="12dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:hint="000"
-            />
-        <EditText
-            android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:background="@drawable/edt_border"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:hint="000"
-            />
-        <EditText
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3"
 
-            android:padding="8dp"
-            android:background="@drawable/edt_border"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:hint="000"
-            />
+            >
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/edt_vsTarget"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/edt_lastYear"
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/edt_trend"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
 
 
     <TextView
@@ -184,4 +191,473 @@
         android:background="@drawable/border"
 
         />
-</LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:background="@drawable/border"
+            >
+
+            <TextView
+                android:layout_marginLeft="32dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TARGET"
+                />
+            <TextView
+
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="MTD"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TREND VS LY"
+                android:textStyle="bold"
+                android:layout_marginRight="16sp"/>
+            <TextView
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="LESS VALUE"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/border"
+            android:padding="8dp"
+            android:text="ARAMIS" />
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+
+            >
+
+            <EditText
+                android:id="@+id/aramis_target"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/aramis_mtd"
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/aramis_trend"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/aramis_lessValue"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_margin="12dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:padding="8dp"
+            android:text="DKNY"
+            android:background="@drawable/border"
+            />
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+
+            >
+
+            <EditText
+                android:id="@+id/dkny_target"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/dkny_mtd"
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/dkny_trend"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:id="@+id/dkny_lessValue"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_margin="12dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:padding="8dp"
+            android:text="MK"
+            android:background="@drawable/border"
+            />
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+
+            >
+
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_margin="12dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:padding="8dp"
+            android:text="ZEGNA"
+            android:background="@drawable/border"
+            />
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+
+            >
+
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_margin="12dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:padding="8dp"
+            android:text="TOMMY"
+            android:background="@drawable/border"
+            />
+        <LinearLayout
+            android:paddingBottom="8dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+
+            >
+
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:layout_marginLeft="12dp"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+            <EditText
+
+                android:padding="8dp"
+                android:background="@drawable/edt_border"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:hint="000"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
