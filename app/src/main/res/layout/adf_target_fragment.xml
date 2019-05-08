@@ -179,18 +179,51 @@
 
         </LinearLayout>
 
+        <Button
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BY BRANDS"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:padding="12dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border"
+            android:id="@+id/onSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            />
 
-        />
+
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BY BRANDS"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="right"
+                />
+
+            <ImageView
+                android:id="@+id/add_brand"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_edit_black_24dp"
+                />
+
+        </LinearLayout>
+
 
 
         <LinearLayout
@@ -237,6 +270,8 @@
                 />
 
         </LinearLayout>
+
+
 
         <!--<TextView-->
             <!--android:layout_width="150dp"-->
