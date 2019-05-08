@@ -16,6 +16,8 @@ public class FYTD_Fragment extends Fragment {
     EditText edt_target,edt_done,edt_lessValue,edt_vsTarget,edt_lastYear,edt_trend,aramis_target;
     EditText aramis_trend,aramis_mtd,lessValue;
     EditText dkny_target,dkny_trend,dkny_mtd,dkny_lessValue;
+    EditText mk_target, mk_trend, mk_mtd, mk_lessValue;
+    EditText zegna_target, zegna_trend,zegma_mtd,zegna_lessValue;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,8 +40,10 @@ public class FYTD_Fragment extends Fragment {
         dkny_mtd = view.findViewById(R.id.dkny_mtd);
         dkny_lessValue = view.findViewById(R.id.dkny_lessValue);
 
-
-
+        mk_target = view.findViewById(R.id.mk_target);
+        mk_trend = view.findViewById(R.id.mk_trend);
+        mk_mtd = view.findViewById(R.id.mk_mtd);
+        mk_lessValue = view.findViewById(R.id.mk_lessValue) ;
         return view;
     }
 }

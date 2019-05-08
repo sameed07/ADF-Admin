@@ -238,426 +238,363 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:layout_margin="12dp"
-            android:background="@drawable/border"
-            android:padding="8dp"
-            android:text="ARAMIS" />
-        <LinearLayout
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
+        <!--<TextView-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:background="@drawable/border"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="ARAMIS" />-->
+        <!--<LinearLayout-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
 
-            >
+            <!--&gt;-->
 
-            <EditText
-                android:id="@+id/aramis_target"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_marginLeft="12dp"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/aramis_mtd"
-                android:inputType="numberDecimal"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/aramis_trend"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/aramis_lessValue"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
+            <!--<EditText-->
+                <!--android:id="@+id/aramis_target"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/aramis_mtd"-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/aramis_trend"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/aramis_lessValue"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
 
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
 
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_margin="12dp"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:padding="8dp"
-            android:text="DKNY"
-            android:background="@drawable/border"
-            />
-        <LinearLayout
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
-
-            >
-
-            <EditText
-                android:id="@+id/dkny_target"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_marginLeft="12dp"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/dkny_mtd"
-                android:inputType="numberDecimal"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/dkny_trend"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:id="@+id/dkny_lessValue"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
 
 
-        </LinearLayout>
-        <TextView
-            android:layout_margin="12dp"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:padding="8dp"
-            android:text="MK"
-            android:background="@drawable/border"
-            />
-        <LinearLayout
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="DKNY"-->
+            <!--android:background="@drawable/border"-->
+            <!--/>-->
+        <!--<LinearLayout-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
 
-            >
+            <!--&gt;-->
 
-            <EditText
+            <!--<EditText-->
+                <!--android:id="@+id/dkny_target"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/dkny_mtd"-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/dkny_trend"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/dkny_lessValue"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
 
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_marginLeft="12dp"
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="MK"-->
+            <!--android:background="@drawable/border"-->
+            <!--/>-->
+        <!--<LinearLayout-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
 
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:inputType="numberDecimal"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
+            <!--&gt;-->
 
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_margin="12dp"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:padding="8dp"
-            android:text="ZEGNA"
-            android:background="@drawable/border"
-            />
-        <LinearLayout
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
-
-            >
-
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_marginLeft="12dp"
-
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:inputType="numberDecimal"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
+            <!--<EditText-->
+                <!--android:id="@+id/mk_target"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/mk_mtd"-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/mk_trend"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/mk_lessValue"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"/>-->
 
 
-        </LinearLayout>
-        <TextView
-            android:layout_margin="12dp"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:padding="8dp"
-            android:text="TOMMY"
-            android:background="@drawable/border"
-            />
-        <LinearLayout
-            android:paddingBottom="8dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="12dp"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="ZEGNA"-->
+            <!--android:background="@drawable/border"-->
+            <!--/>-->
+        <!--<LinearLayout-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
 
-            >
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
 
-            <EditText
+            <!--&gt;-->
 
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:layout_marginLeft="12dp"
+            <!--<EditText-->
+                <!--android:id="@+id/zegna_target"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_marginLeft="12dp"-->
 
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-                android:inputType="numberDecimal"
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/zegna_mtd"-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
 
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
-            <EditText
-
-                android:padding="8dp"
-                android:background="@drawable/edt_border"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:hint="000"
-                />
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/zegna_trend"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:id="@+id/zegna_valueLess"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
 
 
-        </LinearLayout>
+
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:padding="8dp"-->
+            <!--android:text="TOMMY"-->
+            <!--android:background="@drawable/border"-->
+            <!--/>-->
+        <!--<LinearLayout-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
+
+            <!--&gt;-->
+
+            <!--<EditText-->
+
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:layout_marginLeft="12dp"-->
+
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+            <!--<EditText-->
+
+                <!--android:padding="8dp"-->
+                <!--android:background="@drawable/edt_border"-->
+                <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:hint="000"-->
+                <!--/>-->
+
+
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 </ScrollView>
