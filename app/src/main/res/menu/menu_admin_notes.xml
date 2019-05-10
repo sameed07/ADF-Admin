@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.sameedshah.adfapp.AdminActivity">
     <item
-        android:id="@+id/action_save"
+        android:id="@+id/action_adf_target"
         android:orderInCategory="100"
-        android:title="Save"
+        android:title="ADF TARGET"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_quarterly"
+        android:orderInCategory="100"
+        android:title="QUARTERLY"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_fytd"
+        android:orderInCategory="100"
+        android:title="FYTD"
         app:showAsAction="never" />
 </menu>

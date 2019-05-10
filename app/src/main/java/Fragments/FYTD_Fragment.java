@@ -50,11 +50,7 @@ public class FYTD_Fragment extends Fragment {
         return view;
     }
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
 
-    }
 
 
 }

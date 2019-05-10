@@ -89,8 +89,15 @@ public class AdminActivity extends AppCompatActivity {
 //        int id = item.getItemId();
 //
 //        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_save) {
+//        if (id == R.id.action_adf_target) {
 //
+//
+//            return true;
+//        }else if( id == R.id.action_quarterly){
+//
+//            return true;
+//        }
+//        else if(id == R.id.action_fytd){
 //
 //            return true;
 //        }

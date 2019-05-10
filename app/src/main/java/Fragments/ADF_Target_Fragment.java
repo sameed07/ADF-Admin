@@ -72,7 +72,7 @@ public class ADF_Target_Fragment extends Fragment {
             }
         });
 
-        loadData();
+      //  loadData();
         return view;
     }
 
