@@ -121,6 +121,7 @@ public class AddTarget extends AppCompatActivity {
 
     private void ADF_dialog() {
 
+        mRef = mDatabase.getReference("Targets").child("ADF");
 
         final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
         mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -177,7 +178,7 @@ public class AddTarget extends AppCompatActivity {
     }
 
     private void quarterly_dialog(){
-
+        mRef = mDatabase.getReference("Targets").child("Quarterly");
         final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
         mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mdialog.setContentView(R.layout.add_target_dialog);
@@ -232,6 +233,8 @@ public class AddTarget extends AppCompatActivity {
     }
 
     private void fytd_dialog(){
+
+        mRef = mDatabase.getReference("Targets").child("FYTD");
 
         final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
         mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
