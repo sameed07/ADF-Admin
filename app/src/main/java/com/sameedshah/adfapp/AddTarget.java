@@ -107,11 +107,12 @@ public class AddTarget extends AppCompatActivity {
            return true;
       }else if( id == R.id.action_quarterly){
 
-           Toast.makeText(this, "Quarterly TARGET Function called", Toast.LENGTH_SHORT).show();
+           quarterly_dialog();
             return true;
         }
        else if(id == R.id.action_fytd){
-           Toast.makeText(this, "FYTD TARGET Function called", Toast.LENGTH_SHORT).show();
+
+           fytd_dialog();
            return true;
        }
 
@@ -173,6 +174,116 @@ public class AddTarget extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void quarterly_dialog(){
+
+        final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
+        mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mdialog.setContentView(R.layout.add_target_dialog);
+        mdialog.show();
+
+        final EditText edtLocation = mdialog.findViewById(R.id.edtLocation);
+        final EditText edtTarget  = mdialog.findViewById(R.id.edtTarget);
+        final EditText edtDone =  mdialog.findViewById(R.id.edtDone);
+        final EditText edtLessValue = mdialog.findViewById(R.id.edt_lessValue);
+        final EditText edtVsTarget = mdialog.findViewById(R.id.edt_vsTarget);
+        final EditText edtLastyear = mdialog.findViewById(R.id.edt_lastYear);
+        final EditText edtTrend  = mdialog.findViewById(R.id.edt_trend);
+        Button btnUpdate = mdialog.findViewById(R.id.btnUpdate);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!edtLocation.getText().toString().equals("") && !edtTarget.getText().toString().equals("")
+                        && !edtDone.getText().toString().equals("") && !edtLessValue.getText().toString().equals("")
+                        && !edtVsTarget.getText().toString().equals("") && !edtLastyear.getText().toString().equals("")
+                        && !edtTrend.getText().toString().equals("")){
+
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("location", edtLocation.getText().toString());
+                    map.put("target", edtTarget.getText().toString());
+                    map.put("done",edtDone.getText().toString());
+                    map.put("less_value",edtLessValue.getText().toString());
+                    map.put("vs_target",edtVsTarget.getText().toString());
+                    map.put("last_year",edtLastyear.getText().toString());
+                    map.put("trend",edtTrend.getText().toString());
+                    mRef = mRef.child(edtLocation.getText().toString());
+
+                    mRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(AddTarget.this, "Updated", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else{
+                                Toast.makeText(AddTarget.this, "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "All fields Must not be Empty!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+    }
+
+    private void fytd_dialog(){
+
+        final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
+        mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mdialog.setContentView(R.layout.add_target_dialog);
+        mdialog.show();
+
+        final EditText edtLocation = mdialog.findViewById(R.id.edtLocation);
+        final EditText edtTarget  = mdialog.findViewById(R.id.edtTarget);
+        final EditText edtDone =  mdialog.findViewById(R.id.edtDone);
+        final EditText edtLessValue = mdialog.findViewById(R.id.edt_lessValue);
+        final EditText edtVsTarget = mdialog.findViewById(R.id.edt_vsTarget);
+        final EditText edtLastyear = mdialog.findViewById(R.id.edt_lastYear);
+        final EditText edtTrend  = mdialog.findViewById(R.id.edt_trend);
+        Button btnUpdate = mdialog.findViewById(R.id.btnUpdate);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!edtLocation.getText().toString().equals("") && !edtTarget.getText().toString().equals("")
+                        && !edtDone.getText().toString().equals("") && !edtLessValue.getText().toString().equals("")
+                        && !edtVsTarget.getText().toString().equals("") && !edtLastyear.getText().toString().equals("")
+                        && !edtTrend.getText().toString().equals("")){
+
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("location", edtLocation.getText().toString());
+                    map.put("target", edtTarget.getText().toString());
+                    map.put("done",edtDone.getText().toString());
+                    map.put("less_value",edtLessValue.getText().toString());
+                    map.put("vs_target",edtVsTarget.getText().toString());
+                    map.put("last_year",edtLastyear.getText().toString());
+                    map.put("trend",edtTrend.getText().toString());
+                    mRef = mRef.child(edtLocation.getText().toString());
+
+                    mRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(AddTarget.this, "Updated", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else{
+                                Toast.makeText(AddTarget.this, "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "All fields Must not be Empty!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
 
     /**
