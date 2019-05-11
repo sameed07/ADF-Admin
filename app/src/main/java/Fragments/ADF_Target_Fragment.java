@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -72,7 +74,10 @@ public class ADF_Target_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(), "asdf", Toast.LENGTH_SHORT).show();
+                final Dialog mdialog = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
+                mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                mdialog.setContentView(R.layout.brands_dialog);
+                mdialog.show();
             }
         });
 
