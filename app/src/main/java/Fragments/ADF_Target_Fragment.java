@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,7 @@ public class ADF_Target_Fragment extends Fragment {
     private List<String> location;
     Spinner locationSpinner;
      ArrayList<String> mList;
+    TargetModel tm;
 
 
 
@@ -66,6 +68,8 @@ public class ADF_Target_Fragment extends Fragment {
 
 
 
+
+
         add_brand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,19 +87,40 @@ public class ADF_Target_Fragment extends Fragment {
     private void loadData() {
 
         mList = new ArrayList<>();
-        mRef.orderByChild("location").addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+
+
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    TargetModel tm = ds.getValue(TargetModel.class);
+                     tm = ds.getValue(TargetModel.class);
                     mList.add(tm.getLocation());
+
+
 
                 }
 
                 ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_dropdown_item,mList);
                 locationSpinner.setAdapter(adapter);
-            }
+                    locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                            dataSaved(mList.get(position));
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
+            }else{
+                    Toast.makeText(getContext(),"No Data Found!", Toast.LENGTH_LONG).show();
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -122,39 +147,28 @@ public class ADF_Target_Fragment extends Fragment {
 //        });
     }
 
-    public void dataSaved(){
-        if(!edt_target.getText().toString().equals("") && !edt_done.getText().toString().equals("")
-                && !edt_vsTarget.getText().toString().equals("") && !edt_lessValue.getText().toString().equals("")
-                && !edt_trend.getText().toString().equals("")&& !edt_lastYear.getText().toString().equals("")) {
-        final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Uploading...");
-        progressDialog.show();
+    public void dataSaved(String location){
+         mRef.orderByChild("location").equalTo(location).addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                 for(DataSnapshot ds : dataSnapshot.getChildren()){
+                     TargetModel tm = ds.getValue(TargetModel.class);
+                     edt_done.setText(tm.getDone());
+                     edt_target.setText(tm.getTarget());
+                     edt_lessValue.setText(tm.getLess_value());
+                     edt_trend.setText(tm.getTrend());
+                     edt_lastYear.setText(tm.getLast_year());
+                     edt_vsTarget.setText(tm.getVs_target());
 
-            Map<String, Object> map = new HashMap<>();
-            map.put("Target", edt_target.getText().toString());
-            map.put("Done", edt_done.getText().toString());
-            map.put("LessValueToAchieve", edt_lessValue.getText().toString());
-            map.put("VSTarget", edt_vsTarget.getText().toString());
-            map.put("LastYear", edt_lastYear.getText().toString());
-            map.put("Trend", edt_trend.getText().toString());
+                 }
+             }
 
-            mRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        progressDialog.dismiss();
-                        Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getContext(), "err: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }else{
-            Toast.makeText(getContext(), "All fields must not be empty!", Toast.LENGTH_SHORT).show();
-        }
+             }
+         });
     }
 
 
