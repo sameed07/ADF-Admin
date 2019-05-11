@@ -11,9 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sameedshah.adfapp.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import Model.TargetModel;
@@ -38,6 +42,11 @@ public class ADF_Target_Fragment extends Fragment {
     FirebaseDatabase mDatabase;
     DatabaseReference mRef;
     Button btnSave;
+    private List<String> location;
+    Spinner locationSpinner;
+     ArrayList<String> mList;
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,8 +62,9 @@ public class ADF_Target_Fragment extends Fragment {
         edt_lastYear = view.findViewById(R.id.edt_lastYear);
         edt_trend = view.findViewById(R.id.edt_trend);
         add_brand = view.findViewById(R.id.add_brand);
+        locationSpinner = view.findViewById(R.id.locationSpinner);
 
-        btnSave = view.findViewById(R.id.onSave);
+
 
         add_brand.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,13 +74,7 @@ public class ADF_Target_Fragment extends Fragment {
             }
         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                dataSaved();
-            }
-        });
 
           loadData();
         return view;
@@ -78,7 +82,44 @@ public class ADF_Target_Fragment extends Fragment {
 
     private void loadData() {
 
+        mList = new ArrayList<>();
+        mRef.orderByChild("location").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    TargetModel tm = ds.getValue(TargetModel.class);
+                    mList.add(tm.getLocation());
 
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_dropdown_item,mList);
+                locationSpinner.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+//        mRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
+//                    String locations = areaSnapshot.getValue(String.class);
+//                    location.add(locations);
+//                }
+//
+//                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, location);
+//                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                locationSpinner.setAdapter(arrayAdapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 
     public void dataSaved(){
