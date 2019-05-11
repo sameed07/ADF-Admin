@@ -72,24 +72,13 @@ public class ADF_Target_Fragment extends Fragment {
             }
         });
 
-      //  loadData();
+          loadData();
         return view;
     }
 
     private void loadData() {
 
-        mRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                TargetModel target = dataSnapshot.getValue(TargetModel.class);
-                //edt_done.setText(target.getDone());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public void dataSaved(){

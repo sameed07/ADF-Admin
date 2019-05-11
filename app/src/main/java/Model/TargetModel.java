@@ -1,71 +1,81 @@
 package Model;
 
 public class TargetModel {
-    String Target;
-    String Done;
-    String LessValueToAchieve;
-    String VSTarget;
-    String LastYear;
-    String Trend;
+    String location;
+    String target;
+    String done;
+    String less_value;
+    String vs_target;
+    String last_year;
+    String trend;
+
 
     public TargetModel() {
     }
 
-    public TargetModel(String target, String done, String lessValueToAchieve, String VSTarget, String lastYear, String trend) {
-        Target = target;
-        Done = done;
-        LessValueToAchieve = lessValueToAchieve;
-        this.VSTarget = VSTarget;
-        LastYear = lastYear;
-        Trend = trend;
+    public TargetModel(String location, String target, String done, String less_value, String vs_target, String last_year, String trend) {
+        this.location = location;
+        this.target = target;
+        this.done = done;
+        this.less_value = less_value;
+        this.vs_target = vs_target;
+        this.last_year = last_year;
+        this.trend = trend;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getTarget() {
-        return Target;
+        return target;
     }
 
     public void setTarget(String target) {
-        Target = target;
+        this.target = target;
     }
 
     public String getDone() {
-        return Done;
+        return done;
     }
 
     public void setDone(String done) {
-        Done = done;
+        this.done = done;
     }
 
-    public String getLessValueToAchieve() {
-        return LessValueToAchieve;
+    public String getLess_value() {
+        return less_value;
     }
 
-    public void setLessValueToAchieve(String lessValueToAchieve) {
-        LessValueToAchieve = lessValueToAchieve;
+    public void setLess_value(String less_value) {
+        this.less_value = less_value;
     }
 
-    public String getVSTarget() {
-        return VSTarget;
+    public String getVs_target() {
+        return vs_target;
     }
 
-    public void setVSTarget(String VSTarget) {
-        this.VSTarget = VSTarget;
+    public void setVs_target(String vs_target) {
+        this.vs_target = vs_target;
     }
 
-    public String getLastYear() {
-        return LastYear;
+    public String getLast_year() {
+        return last_year;
     }
 
-    public void setLastYear(String lastYear) {
-        LastYear = lastYear;
+    public void setLast_year(String last_year) {
+        this.last_year = last_year;
     }
 
     public String getTrend() {
-        return Trend;
+        return trend;
     }
 
     public void setTrend(String trend) {
-        Trend = trend;
+        this.trend = trend;
     }
 }
