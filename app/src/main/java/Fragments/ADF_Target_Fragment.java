@@ -42,8 +42,6 @@ public class ADF_Target_Fragment extends Fragment {
     ImageView add_brand;
     FirebaseDatabase mDatabase;
     DatabaseReference mRef;
-    Button btnSave;
-    private List<String> location;
     Spinner locationSpinner;
      ArrayList<String> mList;
     TargetModel tm;
