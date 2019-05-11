@@ -1,6 +1,8 @@
 package com.sameedshah.adfapp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,8 +16,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import Fragments.ADF_Target_Fragment;
 import Fragments.AdminNotesFrag;
@@ -28,6 +41,8 @@ public class AddTarget extends AppCompatActivity {
     private AddTarget.SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
+    FirebaseDatabase mDatabase;
+    DatabaseReference mRef;
 
 
     @Override
@@ -38,6 +53,9 @@ public class AddTarget extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDatabase = FirebaseDatabase.getInstance();
+        mRef = mDatabase.getReference("Targets").child("ADF");
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new AddTarget.SectionsPagerAdapter(getSupportFragmentManager());
@@ -81,21 +99,77 @@ public class AddTarget extends AppCompatActivity {
 //        //noinspection SimplifiableIfStatement
        if (id == R.id.action_adf_target) {
 //
+           ADF_dialog();
+           //Toast.makeText(this, "ADF TARGET Function called", Toast.LENGTH_SHORT).show();
 //
            return true;
       }else if( id == R.id.action_quarterly){
 
+           Toast.makeText(this, "Quarterly TARGET Function called", Toast.LENGTH_SHORT).show();
             return true;
         }
        else if(id == R.id.action_fytd){
-
+           Toast.makeText(this, "FYTD TARGET Function called", Toast.LENGTH_SHORT).show();
            return true;
        }
 
        return super.onOptionsItemSelected(item);
    }
 
-    private void saved() {
+    private void ADF_dialog() {
+
+
+        final Dialog mdialog = new Dialog(this,android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
+        mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mdialog.setContentView(R.layout.add_target_dialog);
+        mdialog.show();
+
+        final EditText edtLocation = mdialog.findViewById(R.id.edtLocation);
+        final EditText edtTarget  = mdialog.findViewById(R.id.edtTarget);
+        final EditText edtDone =  mdialog.findViewById(R.id.edtDone);
+        final EditText edtLessValue = mdialog.findViewById(R.id.edt_lessValue);
+        final EditText edtVsTarget = mdialog.findViewById(R.id.edt_vsTarget);
+        final EditText edtLastyear = mdialog.findViewById(R.id.edt_lastYear);
+        final EditText edtTrend  = mdialog.findViewById(R.id.edt_trend);
+        Button btnUpdate = mdialog.findViewById(R.id.btnUpdate);
+        
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!edtLocation.getText().toString().equals("") && !edtTarget.getText().toString().equals("")
+                        && !edtDone.getText().toString().equals("") && !edtLessValue.getText().toString().equals("")
+                        && !edtVsTarget.getText().toString().equals("") && !edtLastyear.getText().toString().equals("")
+                        && !edtTrend.getText().toString().equals("")){
+
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("location", edtLocation.getText().toString());
+                    map.put("target", edtTarget.getText().toString());
+                    map.put("done",edtDone.getText().toString());
+                    map.put("less_value",edtLessValue.getText().toString());
+                    map.put("vs_target",edtVsTarget.getText().toString());
+                    map.put("last_year",edtLastyear.getText().toString());
+                    map.put("trend",edtTrend.getText().toString());
+                    mRef = mRef.child(edtLocation.getText().toString());
+
+                    mRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(AddTarget.this, "Updated", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else{
+                                Toast.makeText(AddTarget.this, "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "All fields Must not be Empty!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
     }
 
