@@ -126,25 +126,7 @@ public class ADF_Target_Fragment extends Fragment {
 
             }
         });
-//        mRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
-//                    String locations = areaSnapshot.getValue(String.class);
-//                    location.add(locations);
-//                }
-//
-//                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, location);
-//                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                locationSpinner.setAdapter(arrayAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+
     }
 
     public void dataSaved(String location){
@@ -173,27 +155,61 @@ public class ADF_Target_Fragment extends Fragment {
 
     public void showBrandDialog(){
 
+        FirebaseDatabase mdatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference brandRef = mdatabase.getReference("Brands").child("ADF");
         final Dialog mdialog = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
         mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mdialog.setContentView(R.layout.brands_dialog);
+        mdialog.show();
+     //   EditText edt_location = mdialog.findViewById(R.id.edtLocation);
+        final EditText edt_brand = mdialog.findViewById(R.id.edtBrandName);
+        final EditText edt_target = mdialog.findViewById(R.id.edtTarget);
+        final EditText edt_mdt = mdialog.findViewById(R.id.edt_mtd);
+        final EditText edt_trend = mdialog.findViewById(R.id.edt_trend);
+        final EditText edt_less = mdialog.findViewById(R.id.edt_lessValue);
+        final Spinner locaionSpin = mdialog.findViewById(R.id.locationSpinner);
+        Button btnSave = mdialog.findViewById(R.id.btnSave);
+        ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_dropdown_item,mList);
+        locaionSpin.setAdapter(adapter);
+        loadData();
 
-        EditText edt_location = mdialog.findViewById(R.id.edtLocation);
-        EditText edt_brand = mdialog.findViewById(R.id.edtBrandName);
-        EditText edt_target = mdialog.findViewById(R.id.edtTarget);
-        EditText edt_mdt = mdialog.findViewById(R.id.edt_mtd);
-        EditText edt_trend = mdialog.findViewById(R.id.edt_trend);
-        EditText edt_less = mdialog.findViewById(R.id.edt_lessValue);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        if(!edt_location.getText().toString().equals("") && !edt_brand.getText().toString().equals("") &&
-        !edt_target.getText().toString().equals("") && !edt_mdt.getText().toString().equals("") &&
-        !edt_trend.getText().toString().equals("") && !edt_less.getText().toString().equals("")) {
+                if( !edt_brand.getText().toString().equals("") &&
+                        !edt_target.getText().toString().equals("") && !edt_mdt.getText().toString().equals("") &&
+                        !edt_trend.getText().toString().equals("") && !edt_less.getText().toString().equals("")) {
+
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("location", locaionSpin.getSelectedItem().toString());
+                    map.put("brand_name", edt_brand.getText().toString());
+                    map.put("target",edt_target.getText().toString());
+                    map.put("mdt", edt_mdt.getText().toString());
+                    map.put("trend", edt_trend.getText().toString());
+                    map.put("less_value",edt_less.getText().toString());
+                    brandRef.child(locaionSpin.getSelectedItem().toString());
+
+                    brandRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if(task.isSuccessful()){
+                                Toast.makeText(getContext(), "Data Added", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getContext(), "Err :" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
 
 
+                }else{
+                    Toast.makeText(getContext(), "All fields must not be empty!", Toast.LENGTH_SHORT).show();
+                }
 
-            mdialog.show();
-        }else{
-            Toast.makeText(getContext(), "All fields must not be empty!", Toast.LENGTH_SHORT).show();
-        }
+            }
+        });
+
 
     }
 

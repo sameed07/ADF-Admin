@@ -40,18 +40,26 @@
             android:textColor="@color/colorBlack"
             android:padding="8dp"
             />
-        <EditText
-            android:id="@+id/edtLocation"
-            android:padding="8dp"
-            android:textColor="@color/colorBlack"
-            android:textColorHint="@color/greycolor"
+        <Spinner
             android:layout_width="match_parent"
-            android:layout_marginRight="32dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="20dp"
-            android:hint="Location:"
+            android:id="@+id/locationSpinner"
+            android:layout_margin="4dp"
             android:background="@drawable/edt_border"
-            />
+            >
+        </Spinner>
+        <!--<EditText-->
+            <!--android:id="@+id/edtLocation"-->
+            <!--android:padding="8dp"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textColorHint="@color/greycolor"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_marginRight="32dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:hint="Location:"-->
+            <!--android:background="@drawable/edt_border"-->
+            <!--/>-->
 
     </LinearLayout>
 
@@ -241,7 +249,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
