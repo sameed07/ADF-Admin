@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +39,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Adapters.BrandAdapter;
+import Model.Brands;
+import Model.Notes;
 import Model.TargetModel;
 
 public class ADF_Target_Fragment extends Fragment {
@@ -48,6 +54,13 @@ public class ADF_Target_Fragment extends Fragment {
      ArrayList<String> mList;
     TargetModel tm;
 
+    DatabaseReference brandRef;
+
+    RecyclerView brandsRecycler;
+    RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Brands> brandsList = new ArrayList<>();
+
+
 
 
     @Override
@@ -56,6 +69,9 @@ public class ADF_Target_Fragment extends Fragment {
 
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference("Targets").child("ADF");
+
+        FirebaseDatabase mdatabase = FirebaseDatabase.getInstance();
+        brandRef = mdatabase.getReference("Brands").child("ADF");
 
         edt_target = view.findViewById(R.id.edt_target);
         edt_done = view.findViewById(R.id.edt_done);
@@ -66,7 +82,10 @@ public class ADF_Target_Fragment extends Fragment {
         add_brand = view.findViewById(R.id.add_brand);
         locationSpinner = view.findViewById(R.id.locationSpinner);
 
-
+        brandsRecycler = view.findViewById(R.id.brandsRecycler);
+        layoutManager = new LinearLayoutManager(getContext());
+        brandsRecycler.setLayoutManager(layoutManager);
+        brandsRecycler.setHasFixedSize(true);
 
 
 
@@ -108,6 +127,7 @@ public class ADF_Target_Fragment extends Fragment {
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                             dataSaved(mList.get(position));
+                            showBrands(mList.get(position));
                         }
 
                         @Override
@@ -155,8 +175,8 @@ public class ADF_Target_Fragment extends Fragment {
 
     public void showBrandDialog(){
 
-        FirebaseDatabase mdatabase = FirebaseDatabase.getInstance();
-        final DatabaseReference brandRef = mdatabase.getReference("Brands").child("ADF");
+
+
         final Dialog mdialog = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
         mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mdialog.setContentView(R.layout.brands_dialog);
@@ -188,14 +208,16 @@ public class ADF_Target_Fragment extends Fragment {
                     map.put("mdt", edt_mdt.getText().toString());
                     map.put("trend", edt_trend.getText().toString());
                     map.put("less_value",edt_less.getText().toString());
-                    brandRef.child(locaionSpin.getSelectedItem().toString());
 
-                    brandRef.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    brandRef = brandRef.child(locaionSpin.getSelectedItem().toString());
+
+                    brandRef.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(getContext(), "Data Added", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
                             }else{
                                 Toast.makeText(getContext(), "Err :" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -211,6 +233,38 @@ public class ADF_Target_Fragment extends Fragment {
         });
 
 
+    }
+
+    public void showBrands(String location){
+
+        final BrandAdapter adapter = new BrandAdapter(getContext(),brandsList);
+        brandRef.child(location).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                if(dataSnapshot.exists()){
+                    brandsList.clear();
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Brands brands = ds.getValue(Brands.class);
+                        brandsList.add(brands);
+                    }
+
+                    brandsRecycler.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                }else{
+                    brandsList.clear();
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(getContext(), "Data does not exists", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }
