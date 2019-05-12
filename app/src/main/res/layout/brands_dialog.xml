@@ -86,18 +86,18 @@
             android:textColor="@color/colorBlack"
             android:padding="8dp"
             />
+
         <EditText
             android:id="@+id/edtBrandName"
-            android:padding="8dp"
-            android:textColor="@color/colorBlack"
-            android:textColorHint="@color/greycolor"
             android:layout_width="match_parent"
-            android:layout_marginRight="32dp"
             android:layout_height="35dp"
             android:layout_marginLeft="20dp"
-            android:hint="Name"
+            android:layout_marginRight="32dp"
             android:background="@drawable/edt_border"
-            />
+            android:hint="Name"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor" />
 
     </LinearLayout>
 
@@ -140,7 +140,7 @@
             android:padding="8dp"
             />
         <EditText
-            android:id="@+id/edt_vsTarget"
+            android:id="@+id/edtTarget"
             android:padding="8dp"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/greycolor"
@@ -168,7 +168,7 @@
             android:padding="8dp"
             />
         <EditText
-            android:id="@+id/edt_lastYear"
+            android:id="@+id/edt_mtd"
             android:padding="8dp"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/greycolor"
@@ -226,7 +226,7 @@
             android:padding="8dp"
             />
         <EditText
-            android:id="@+id/edt_trend"
+            android:id="@+id/edt_lessValue"
             android:padding="8dp"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/greycolor"

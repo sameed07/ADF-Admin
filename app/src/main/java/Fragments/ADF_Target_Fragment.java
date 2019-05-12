@@ -74,10 +74,7 @@ public class ADF_Target_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final Dialog mdialog = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
-                mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                mdialog.setContentView(R.layout.brands_dialog);
-                mdialog.show();
+               showBrandDialog();
             }
         });
 
@@ -174,5 +171,30 @@ public class ADF_Target_Fragment extends Fragment {
          });
     }
 
+    public void showBrandDialog(){
+
+        final Dialog mdialog = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen);
+        mdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mdialog.setContentView(R.layout.brands_dialog);
+
+        EditText edt_location = mdialog.findViewById(R.id.edtLocation);
+        EditText edt_brand = mdialog.findViewById(R.id.edtBrandName);
+        EditText edt_target = mdialog.findViewById(R.id.edtTarget);
+        EditText edt_mdt = mdialog.findViewById(R.id.edt_mtd);
+        EditText edt_trend = mdialog.findViewById(R.id.edt_trend);
+        EditText edt_less = mdialog.findViewById(R.id.edt_lessValue);
+
+        if(!edt_location.getText().toString().equals("") && !edt_brand.getText().toString().equals("") &&
+        !edt_target.getText().toString().equals("") && !edt_mdt.getText().toString().equals("") &&
+        !edt_trend.getText().toString().equals("") && !edt_less.getText().toString().equals("")) {
+
+
+
+            mdialog.show();
+        }else{
+            Toast.makeText(getContext(), "All fields must not be empty!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 }
