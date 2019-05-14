@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        ImageView individualTarget = findViewById(R.id.individualTarget);
+        startActivity(new Intent(MainActivity.this,AddIndividualTargetActivity.class));
 
     }
 }
