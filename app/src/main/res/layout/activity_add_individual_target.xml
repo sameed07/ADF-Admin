@@ -1,88 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddIndividualTargetActivity"
-    android:orientation="vertical"
-    >
+    android:fitsSystemWindows="true"
+    tools:context=".AddIndividualTargetActivity">
 
-    <TextView
-        android:textSize="21dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Individual Target"
-        />
-    <TextView
-        android:background="@drawable/border"
-        android:textSize="14dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Target Detail"
-        />
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <LinearLayout
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="14sp"
-        android:layout_marginRight="14sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:padding="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
-            android:text="Select Location"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Select User"/>
-    </LinearLayout>
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="14sp"
-        android:layout_marginLeft="14dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Individual Target"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="14sp"
+                />
 
-        >
-        <Spinner
-            android:padding="4dp"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </Spinner>
-        <Spinner
-            android:padding="4dp"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TARGET" />
 
-        </Spinner>
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INCENTIVE" />
 
-    </LinearLayout>
 
-    <EditText
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/edt_border"
-        />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
