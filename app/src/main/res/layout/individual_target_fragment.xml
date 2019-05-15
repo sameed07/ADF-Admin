@@ -1,22 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Individual Target"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:weightSum="2"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Location"
+            android:textSize="14sp"
+            android:gravity="center
+
+"
+            android:layout_margin="12dp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select User"
+            android:textSize="14sp"
+            android:layout_margin="12dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp">
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/edt_border"/>
+
+        <Spinner
+            android:background="@drawable/edt_border"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_marginLeft="32dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="TARGET"
+            />
+        <TextView
+
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="DONE"
+            />
+        <TextView
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="% VS TARGET"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+
+        >
+
+        <EditText
+            android:id="@+id/edt_target"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:background="@drawable/edt_border"
+            android:layout_marginLeft="12dp"
+
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="000"
+            />
+        <EditText
+            android:id="@+id/edt_done"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:background="@drawable/edt_border"
+
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="000"
+            />
+        <EditText
+            android:id="@+id/edt_lessValue"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:background="@drawable/edt_border"
+
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="000"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:background="@drawable/border"
+        android:layout_marginTop="12dp"
+     >
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="LESS VALUE TO ACHIEVE"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_margin="12dp"/>
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TARGET PER DAY"
+            android:textSize="14sp"
+            android:layout_margin="12dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+
+        >
+
+        <EditText
+           android:textAlignment="center"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:background="@drawable/edt_border"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="000"
+            />
+        <EditText
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:background="@drawable/edt_border"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="000"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BY BRANDS"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="right"
+            />
+
+        <ImageView
+            android:id="@+id/add_brand"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_edit_black_24dp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/brandsRecycler"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
