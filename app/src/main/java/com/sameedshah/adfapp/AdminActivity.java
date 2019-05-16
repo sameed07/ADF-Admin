@@ -11,16 +11,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import Fragments.AdminNotesFrag;
-import Fragments.Admin_Schedule_fragment;
+import com.sameedshah.adfapp.Fragments.AdminNotesFrag;
+import com.sameedshah.adfapp.Fragments.Admin_Schedule_fragment;
 
 public class AdminActivity extends AppCompatActivity {
 

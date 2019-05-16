@@ -1,4 +1,4 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
@@ -21,17 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sameedshah.adfapp.Add_new_notes_activity;
 import com.sameedshah.adfapp.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
-import Adapters.CalenderClassAdapter;
-import Model.ModelClassCalanderAdapter;
+import com.sameedshah.adfapp.Adapters.CalenderClassAdapter;
+import com.sameedshah.adfapp.Model.ModelClassCalanderAdapter;
 
 public class Admin_Schedule_fragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package Adapters;
+package com.sameedshah.adfapp.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,13 +11,10 @@ import android.widget.TextView;
 
 import com.sameedshah.adfapp.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Random;
 
-import Model.Brands;
-import Model.Notes;
+import com.sameedshah.adfapp.Model.Brands;
 
 public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> {
 

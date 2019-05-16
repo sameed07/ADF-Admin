@@ -1,4 +1,4 @@
-package Model;
+package com.sameedshah.adfapp.Model;
 
 public class TargetModel {
     String location;

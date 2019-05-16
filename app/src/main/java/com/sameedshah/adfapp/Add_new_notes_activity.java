@@ -24,7 +24,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-import Fragments.Admin_Schedule_fragment;
+import com.sameedshah.adfapp.Fragments.Admin_Schedule_fragment;
 
 public class Add_new_notes_activity extends AppCompatActivity {
 

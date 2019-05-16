@@ -1,4 +1,4 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -32,9 +32,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import Adapters.BrandAdapter;
-import Model.Brands;
-import Model.TargetModel;
+import com.sameedshah.adfapp.Adapters.BrandAdapter;
+import com.sameedshah.adfapp.Model.Brands;
+import com.sameedshah.adfapp.Model.TargetModel;
 
 public class Quarterly_Fragment  extends Fragment {
 

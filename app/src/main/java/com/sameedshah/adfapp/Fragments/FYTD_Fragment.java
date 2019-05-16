@@ -1,4 +1,4 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -8,9 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -35,9 +32,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import Adapters.BrandAdapter;
-import Model.Brands;
-import Model.TargetModel;
+import com.sameedshah.adfapp.Adapters.BrandAdapter;
+import com.sameedshah.adfapp.Model.Brands;
+import com.sameedshah.adfapp.Model.TargetModel;
 
 public class FYTD_Fragment extends Fragment {
 

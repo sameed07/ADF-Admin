@@ -28,14 +28,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import Fragments.ADF_Target_Fragment;
-import Fragments.AdminNotesFrag;
-import Fragments.Admin_Schedule_fragment;
-import Fragments.FYTD_Fragment;
-import Fragments.Quarterly_Fragment;
+import com.sameedshah.adfapp.Fragments.ADF_Target_Fragment;
+import com.sameedshah.adfapp.Fragments.FYTD_Fragment;
+import com.sameedshah.adfapp.Fragments.Quarterly_Fragment;
 
 public class AddTarget extends AppCompatActivity {
 

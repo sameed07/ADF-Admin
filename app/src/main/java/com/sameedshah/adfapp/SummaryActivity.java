@@ -15,8 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-import Adapters.NotesAdapter;
-import Model.Notes;
+import com.sameedshah.adfapp.Adapters.NotesAdapter;
+import com.sameedshah.adfapp.Model.Notes;
 
 public class SummaryActivity extends AppCompatActivity {
 

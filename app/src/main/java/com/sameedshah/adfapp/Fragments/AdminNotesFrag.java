@@ -1,4 +1,4 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

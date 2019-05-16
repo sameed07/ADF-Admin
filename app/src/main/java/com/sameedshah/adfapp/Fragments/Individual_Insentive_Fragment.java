@@ -1,4 +1,4 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

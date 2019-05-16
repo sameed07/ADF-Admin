@@ -1,25 +1,20 @@
-package Adapters;
+package com.sameedshah.adfapp.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.sameedshah.adfapp.R;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-import Model.Notes;
+import com.sameedshah.adfapp.Model.Notes;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> {
 

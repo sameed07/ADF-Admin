@@ -1,9 +1,6 @@
-package Adapters;
+package com.sameedshah.adfapp.Adapters;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
@@ -18,20 +15,12 @@ import android.widget.Toast;
 
 import com.sameedshah.adfapp.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Random;
 
-import Model.ModelClassCalanderAdapter;
+import com.sameedshah.adfapp.Model.ModelClassCalanderAdapter;
 
 
 public class CalenderClassAdapter extends RecyclerView.Adapter<CalenderClassAdapter.ViewHolderClassReminder> {

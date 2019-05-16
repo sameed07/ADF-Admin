@@ -15,11 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import Fragments.ADF_Target_Fragment;
-import Fragments.AdminNotesFrag;
-import Fragments.Admin_Schedule_fragment;
-import Fragments.IndividualTargetFragment;
-import Fragments.Individual_Insentive_Fragment;
+import com.sameedshah.adfapp.Fragments.IndividualTargetFragment;
+import com.sameedshah.adfapp.Fragments.Individual_Insentive_Fragment;
 
 public class AddIndividualTargetActivity extends AppCompatActivity {
 

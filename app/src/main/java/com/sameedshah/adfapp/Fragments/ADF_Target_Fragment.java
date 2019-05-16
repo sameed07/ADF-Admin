@@ -1,7 +1,6 @@
-package Fragments;
+package com.sameedshah.adfapp.Fragments;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,9 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -24,9 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,13 +30,11 @@ import com.sameedshah.adfapp.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import Adapters.BrandAdapter;
-import Model.Brands;
-import Model.Notes;
-import Model.TargetModel;
+import com.sameedshah.adfapp.Adapters.BrandAdapter;
+import com.sameedshah.adfapp.Model.Brands;
+import com.sameedshah.adfapp.Model.TargetModel;
 
 public class ADF_Target_Fragment extends Fragment {
 
