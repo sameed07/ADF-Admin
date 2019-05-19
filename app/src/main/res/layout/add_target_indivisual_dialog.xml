@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Location:"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Location:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+             />
+        <EditText
+            android:id="@+id/spi_add_indvi_location_dialog"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Location:"
+            android:background="@drawable/edt_border"
+
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="User:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <Spinner
+            android:id="@+id/spi_add_indvi_user_dialog"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+style="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Target:"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="TARGET:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edtTarget"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Target:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Done:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edtDone"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Done :"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="LESS VALUE TO ACHIEVE :"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edt_lessValue"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="value:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/greycolor"
+        />
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="%vs TARGET:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edt_vsTarget"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Target:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Target/Day:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edtTargetPerday"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Target Per Day:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@drawable/button_border"
+        android:textColor="@color/white"
+        android:text="Update"
+        />
+</LinearLayout>

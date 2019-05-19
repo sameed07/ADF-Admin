@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Location:"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="User:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/userSpinner2"
+            android:layout_marginRight="32dp"
+
+            android:layout_marginLeft="20dp"
+
+
+            android:layout_marginBottom="5dp"
+            />
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Location:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edtLocation"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Location:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Brand:"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Brand Name:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+
+        <EditText
+            android:id="@+id/edtBrandName"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/edt_border"
+            android:hint="Name"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/greycolor"
+        />
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="Brand:"
+            android:textColor="@color/colorBlack" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="TARGET"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edtTarget"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Target:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="LOGGED"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edt_mtd"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="LOGGED :"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="% VS TARGET :"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edt_trend"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="% VS TARGET:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="LESS VALUE:"
+            android:textColor="@color/colorBlack"
+            android:padding="8dp"
+            />
+        <EditText
+            android:id="@+id/edt_lessValue"
+            android:padding="8dp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/greycolor"
+            android:layout_width="match_parent"
+            android:layout_marginRight="32dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:hint="LESS VALUE:"
+            android:background="@drawable/edt_border"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@drawable/button_border"
+        android:textColor="@color/white"
+        android:text="Save"
+        />
+</LinearLayout>

@@ -36,8 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
         ImageView individualTarget = findViewById(R.id.individualTarget);
-        startActivity(new Intent(MainActivity.this,AddIndividualTargetActivity.class));
+
+        individualTarget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AddIndividualTargetActivity.class));
+
+            }
+        });
 
     }
 }
