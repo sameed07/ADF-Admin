@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sameedshah.adfapp.Adapters.BrandAdapter;
+import com.sameedshah.adfapp.Adapters.Indivi_Brand_Adapter;
+import com.sameedshah.adfapp.Model.Brands;
+import com.sameedshah.adfapp.Model.Individual_Brands;
 import com.sameedshah.adfapp.Model.Indivisualtarget;
 import com.sameedshah.adfapp.Model.User_Model_Invi;
 import com.sameedshah.adfapp.R;
@@ -39,14 +44,19 @@ import static android.content.Context.MODE_PRIVATE;
 public class IndividualTargetFragment extends Fragment {
     private ImageView addBrand;
     private RecyclerView brandsRecycler;
+    RecyclerView.LayoutManager layoutManager;
 
+    FirebaseDatabase mDatabase;
     private DatabaseReference brandRef;
+    private DatabaseReference brandRef2;
 
     ArrayList<User_Model_Invi> user_model_invis2 = new ArrayList<>();
+    private ArrayList<Individual_Brands> brandsList = new ArrayList<>();
 
     ArrayList<Indivisualtarget> IndivisualIncentiveList = new ArrayList<>();
-    private ArrayList<String> listLocation, listUser;
+    private ArrayList<String> listLocation;
     private ArrayList<String> mList;
+
     private DatabaseReference mRef;
     Spinner userspi;
 
@@ -60,10 +70,17 @@ public class IndividualTargetFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.individual_target_fragment, container, false);
 
+        mDatabase = FirebaseDatabase.getInstance();
+        brandRef2 = mDatabase.getReference("IndivisualBrand");
+
         spinnerUserIndTarget = (Spinner) view.findViewById(R.id.spinner_user_ind_target);
         spinnerLocationIndTarget = (Spinner) view.findViewById(R.id.spinner_location_ind_target);
         addBrand = (ImageView) view.findViewById(R.id.add_brand);
         brandsRecycler = (RecyclerView) view.findViewById(R.id.brandsRecycler);
+        layoutManager = new LinearLayoutManager(getContext());
+        brandsRecycler.setLayoutManager(layoutManager);
+        brandsRecycler.setHasFixedSize(true);
+
 
 
         edt_target = (EditText) view.findViewById(R.id.edt_target);
@@ -94,12 +111,10 @@ public class IndividualTargetFragment extends Fragment {
                                 Indivisualtarget brands = ds.getValue(Indivisualtarget.class);
 
                                 listLocation.add(brands.getLocation());
-                                if (listLocation.size() == 0) {
-                                    Toast.makeText(getContext(), "List is empty", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, listLocation);
-                                    spinnerLocationIndTarget.setAdapter(adapter);
-                                }
+
+                                ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, listLocation);
+                                spinnerLocationIndTarget.setAdapter(adapter);
+
 
                             }
                         } else {
@@ -129,20 +144,19 @@ public class IndividualTargetFragment extends Fragment {
 
         spinnerLocationIndTarget.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
 
-                brandRef = FirebaseDatabase.getInstance().getReference("invisuialtarget").child(spinnerUserIndTarget.getSelectedItem().toString()).child(spinnerLocationIndTarget.getSelectedItem().toString());
+                brandRef = FirebaseDatabase.getInstance().getReference("invisuialtarget").
+                        child(spinnerUserIndTarget.getSelectedItem().toString()).child(spinnerLocationIndTarget.
+                        getSelectedItem().toString());
 
                 brandRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot ds) {
 
 
-
-
-                                Indivisualtarget brands = ds.getValue(Indivisualtarget.class);
-
+                        Indivisualtarget brands = ds.getValue(Indivisualtarget.class);
 
 
                         edt_target.setText(brands.getTarget());
@@ -150,6 +164,7 @@ public class IndividualTargetFragment extends Fragment {
                         edt_lessValue.setText(brands.getVs_target());
                         edt_lessValue_to_achive.setText(brands.getLess_value());
                         target_pay_per_day.setText(brands.getTargetperday());
+                        showBrands(mList.get(position),listLocation.get(position));
 
                     }
 
@@ -158,8 +173,6 @@ public class IndividualTargetFragment extends Fragment {
 
                     }
                 });
-
-
 
 
             }
@@ -178,13 +191,7 @@ public class IndividualTargetFragment extends Fragment {
         });
 
 
-      //  brandRef = FirebaseDatabase.getInstance().getReference("IndivisualBrand").child(spinnerUserIndTarget.getSelectedItem().toString());
-
-
-
-
-
-
+        //  brandRef = FirebaseDatabase.getInstance().getReference("IndivisualBrand").child(spinnerUserIndTarget.getSelectedItem().toString());
 
 
         return view;
@@ -205,7 +212,7 @@ public class IndividualTargetFragment extends Fragment {
         final EditText edt_less = mdialog.findViewById(R.id.edt_lessValue);
         userspi = mdialog.findViewById(R.id.userSpinner2);
 
-       // loadData();
+        // loadData();
         Button btnSave = mdialog.findViewById(R.id.btnSave);
         ArrayAdapter adapter2 = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, mList);
         userspi.setAdapter(adapter2);
@@ -292,5 +299,39 @@ public class IndividualTargetFragment extends Fragment {
 
     }
 
+    public void showBrands(String userName,String location) {
 
+        final Indivi_Brand_Adapter adapter = new Indivi_Brand_Adapter(getContext(), brandsList);
+
+
+        brandRef2.child(userName).child(location).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                if (dataSnapshot.exists()) {
+                  //  brandsList.clear();
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        Individual_Brands brands = ds.getValue(Individual_Brands.class);
+                        brandsList.add(brands);
+
+                    }
+
+                    brandsRecycler.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                } else {
+                  //  brandsList.clear();
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(getContext(), "Data does not exists", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 }
