@@ -94,11 +94,14 @@ public class IndividualTargetFragment extends Fragment {
                                 Indivisualtarget brands = ds.getValue(Indivisualtarget.class);
 
                                 listLocation.add(brands.getLocation());
-
+                                if (listLocation.size() == 0) {
+                                    Toast.makeText(getContext(), "List is empty", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, listLocation);
+                                    spinnerLocationIndTarget.setAdapter(adapter);
+                                }
 
                             }
-                            ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_dropdown_item, listLocation);
-                            spinnerLocationIndTarget.setAdapter(adapter);
                         } else {
                             IndivisualIncentiveList.clear();
 
@@ -175,7 +178,7 @@ public class IndividualTargetFragment extends Fragment {
         });
 
 
-        brandRef = FirebaseDatabase.getInstance().getReference("IndivisualBrand").child(spinnerUserIndTarget.getSelectedItem().toString());
+      //  brandRef = FirebaseDatabase.getInstance().getReference("IndivisualBrand").child(spinnerUserIndTarget.getSelectedItem().toString());
 
 
 
