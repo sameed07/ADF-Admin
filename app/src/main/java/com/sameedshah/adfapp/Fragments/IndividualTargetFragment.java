@@ -177,7 +177,7 @@ public class IndividualTargetFragment extends Fragment {
 
         brandRef = FirebaseDatabase.getInstance().getReference("IndivisualBrand").child(spinnerUserIndTarget.getSelectedItem().toString());
 
-        
+
 
 
 
