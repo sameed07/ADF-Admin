@@ -67,7 +67,37 @@ android:orientation="vertical"
     </LinearLayout>
 </LinearLayout>
 
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="3"
+    >
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="INCENTIVE"
+        android:layout_weight="1"
+        android:layout_marginLeft="12dp"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="QUANTITY"
+        android:layout_weight="1"
+        android:layout_marginLeft="12dp"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="VALUE"
+        android:layout_weight="1"
+        android:layout_marginLeft="12dp"
+        />
+
+</LinearLayout>
 <android.support.v7.widget.RecyclerView
     android:layout_below="@id/linlayout"
     android:id="@+id/rec_indiv_incentivi"

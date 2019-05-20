@@ -164,8 +164,11 @@ public class IndividualTargetFragment extends Fragment {
                         edt_lessValue.setText(brands.getVs_target());
                         edt_lessValue_to_achive.setText(brands.getLess_value());
                         target_pay_per_day.setText(brands.getTargetperday());
-                        showBrands(mList.get(position),listLocation.get(position));
+                        //showBrands(mList.get(position),listLocation.get(position));
 
+                        showBrands(spinnerUserIndTarget.getSelectedItem().toString(),
+                                spinnerLocationIndTarget.getSelectedItem().toString());
+                        //showBrands("Sameed shah", "kohat");
                     }
 
                     @Override
@@ -310,7 +313,7 @@ public class IndividualTargetFragment extends Fragment {
 
 
                 if (dataSnapshot.exists()) {
-                  //  brandsList.clear();
+                      brandsList.clear();
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         Individual_Brands brands = ds.getValue(Individual_Brands.class);
                         brandsList.add(brands);
@@ -320,7 +323,7 @@ public class IndividualTargetFragment extends Fragment {
                     brandsRecycler.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                 } else {
-                  //  brandsList.clear();
+                     brandsList.clear();
                     adapter.notifyDataSetChanged();
                     Toast.makeText(getContext(), "Data does not exists", Toast.LENGTH_SHORT).show();
                 }
