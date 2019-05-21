@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
+    android:layout_margin="8dp"
     android:elevation="5dp"
     >
 
@@ -18,30 +18,30 @@
 
 
 
-        <LinearLayout
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+        <!--<LinearLayout-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
 
-            >
+        <!--&gt;-->
 
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/ic_circle_rec"
+        <!--<ImageView-->
+        <!--android:layout_width="10dp"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:src="@drawable/ic_circle_rec"-->
 
-                />
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/dark_textColorSecondary"
-                />
+        <!--/>-->
+        <!--<View-->
+        <!--android:layout_width="1dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:background="@color/dark_textColorSecondary"-->
+        <!--/>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <android.support.v7.widget.CardView
             android:id="@+id/rec_card"
@@ -53,20 +53,15 @@
             >
 
             <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/recColorLine"
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"
-                    android:orientation="horizontal"
 
-                    />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:orientation="vertical"
@@ -82,93 +77,174 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TARGET : "
-                            android:textColor="@color/greycolor"
-                            android:layout_marginTop="3dp"
-                            android:textSize="12dp" />
+                        android:background="@drawable/border"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+                        >
 
                         <TextView
-                            android:id="@+id/target"
-                            android:layout_width="wrap_content"
+                            android:layout_width="25dp"
                             android:layout_height="wrap_content"
-                            android:text="Target"
-                            android:textColor="@color/greycolor"
-                            android:layout_marginTop="3dp"
-                            android:textSize="12dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
+                            android:layout_weight="1"
+                            android:text="TARGET" />
                         <TextView
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LOGGED : "
-                            android:textColor="@color/greycolor"
-                            android:layout_marginTop="3dp"
-                            android:textSize="12dp" />
+                            android:layout_width="25dp"
 
-                        <TextView
-                            android:id="@+id/mtd"
-                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
+                            android:layout_weight="1"
                             android:text="MTD"
-                            android:textColor="@color/greycolor"
-                            android:textSize="12dp" />
+                            />
+                        <TextView
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TREND VS LY"
+                            />
+                        <TextView
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="LESS VALUE"
+                            />
 
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+
+                        >
 
                         <TextView
-                            android:textStyle="bold"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="wrap_content"
+                            android:paddingLeft="4dp"
+                            android:background="@drawable/edt_border"
+                            android:id="@+id/target"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:textSize="12dp"
-                            android:text="%VS TARGET : "/>
+                            android:layout_weight="1"
+                            android:text="TARGET"
+                            />
                         <TextView
-                            android:layout_marginTop="5dp"
+                            android:paddingLeft="4dp"
+                            android:background="@drawable/edt_border"
+                            android:id="@+id/mtd"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="MTD"
+                            />
+
+                        <TextView
+                            android:paddingLeft="4dp"
+                            android:background="@drawable/edt_border"
                             android:id="@+id/trend"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="TREND VS LY"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="TREND VS LY" />
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12dp"
-                            android:text="LESS VALUE : "/>
-
-                        <TextView
-                            android:layout_marginTop="5dp"
+                            android:paddingLeft="4dp"
+                            android:background="@drawable/edt_border"
                             android:id="@+id/less_value"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-
-                            android:text="LESS VALUE TO ACHIEVE "/>
-
+                            android:layout_weight="1"
+                            android:text="LESS VALUE"
+                            />
 
                     </LinearLayout>
+
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!--<TextView-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Target : "-->
+                    <!--android:textColor="@color/greycolor"-->
+                    <!--android:layout_marginTop="3dp"-->
+                    <!--android:textSize="12dp" />-->
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/target"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Target"-->
+                    <!--android:textColor="@color/greycolor"-->
+                    <!--android:layout_marginTop="3dp"-->
+                    <!--android:textSize="12dp" />-->
+
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<TextView-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="MTD : "-->
+                    <!--android:textColor="@color/greycolor"-->
+                    <!--android:layout_marginTop="3dp"-->
+                    <!--android:textSize="12dp" />-->
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/mtd"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="3dp"-->
+                    <!--android:text="MTD"-->
+                    <!--android:textColor="@color/greycolor"-->
+                    <!--android:textSize="12dp" />-->
+
+                    <!--</LinearLayout>-->
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<TextView-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="12dp"-->
+                    <!--android:text="TREND VS LY : "/>-->
+                    <!--<TextView-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:id="@+id/trend"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+
+                    <!--android:text="TREND VS LY"/>-->
+
+                    <!--</LinearLayout>-->
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<TextView-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="12dp"-->
+                    <!--android:text="LESS VALUE TO ACHIEVE :  "/>-->
+
+                    <!--<TextView-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:id="@+id/less_value"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+
+                    <!--android:text="LESS VALUE TO ACHIEVE "/>-->
+
+
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
                 <LinearLayout
